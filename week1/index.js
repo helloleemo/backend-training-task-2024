@@ -125,7 +125,7 @@ let d = 456; // number
 let e = c + d; // string
 let f = false; // boolean
 let g = d + d; // number
-let h = f + g; // number
+let h = f + g; // number ???
 
 console.log(typeof c, typeof d, typeof e, typeof f, typeof g, typeof h);
 
@@ -153,4 +153,4 @@ numberArr2 = [25, 30, 35];
 
 console.log(numberArr1, numberArr2);
 // [5, 10, 15, 20], [25, 30, 35]
-// 
+
