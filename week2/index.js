@@ -78,7 +78,7 @@ let coachBonus = baseBonus; // 教練業績獎金帳單，並已加入條件一�
 // 練習：計算教練業績獎金
 if (coachIncome < 100000){
   coachBonus += coachIncome * 0.1;
-} else if(coachIncome >100000 && coachIncome < 300000){
+} else if(coachIncome >= 100000 && coachIncome < 300000){
   coachBonus += coachIncome * 0.15;
 } else{
   coachBonus += coachIncome * 0.2;
