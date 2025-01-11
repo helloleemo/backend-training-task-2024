@@ -30,14 +30,15 @@ let AlexBudget = 3000;
 // 條件二：瑜伽團課只能一次買 3 堂
 // 條件三：一定要花到 2400 以上，並購買 5 堂課程
 
-const traningGroupClassCount = 1;
-const yogaGroupClassCount = 3;
+let traningGroupClassCount = 1;
+let yogaGroupClassCount = 3;
 let totalClasses = traningGroupClassCount + yogaGroupClassCount;
 let totalCost = (traningGroupClass * traningGroupClassCount) + (yogaGroupClass * yogaGroupClassCount);
 
 // While 
-while (totalCost >= 2400 && totalClasses >= 5) {
-  totalClasses++;
+while (totalCost < 2400 && totalClasses < 5) {
+  traningGroupClassCount++; // 增加一堂團體課
+  totalClasses++; // 所有課堂數量
   totalCost += traningGroupClass;
 }
 
@@ -59,13 +60,13 @@ const classPrice = 180;
 // 情境：Alex 在往健身房的路上，望向城市的風景，請描述她看到的一切，並宣告變數與賦予值
 // 4-1. Alex 在等紅綠燈，他抬頭看一下現在是紅燈，還有 28 秒綠燈（最多 3 個宣告）
 
-const isRedLight = true;
+let isRedLight = true; // isRedLight 會有可能變 false
 let transitLeftTime = 28;
 
 // 4-2. 目前一起等待的機車有 8 台
-const motorCycleCount = 8;
+let motorCycleCount = 8; //可能變化的數字
 // 4.3. Alex 望向天空，看到天上有 5 朵白雲和 1 顆太陽
-const cloudCount = 5;
+let cloudCount = 5; //可能變化的數字
 const sunCount = 1;
 
 // ### 題目六：情境題：簡單變數計算
@@ -113,7 +114,7 @@ console.log(
 // 以下程式碼請勿變更
 let a = 8; // 範例：宣告了一個 a 的變數，並賦予了一個 8 的數字型別
 let b = 0; // 宣告了一個b變數，並賦予8的數字型別
-a = 13; // a重新賦值為12
+a = 13; // a重新賦值為13
 a = b + 4; // a重新賦值為b+4
 a - b; // a-b
 b += 1; // b重新賦值為b+1
@@ -122,16 +123,16 @@ b += 1; // b重新賦值為b+1
 // 請不要觀看 console.log，透過註解告知解答每個變數的型別
 let c = 'world'; // String
 let d = 456; // number
-let e = c + d; // string
+let e = c + d; // string // string + number = string
 let f = false; // boolean
 let g = d + d; // number
-let h = f + g; // number ???
+let h = f + g; // number // boolean(transfer to number) + number = number
 
 console.log(typeof c, typeof d, typeof e, typeof f, typeof g, typeof h);
 
 // 請從以下新增註解，告知上面每行各別是哪些型別
 // a 是 string
-// b 是 ??? number
+// b 是 
 console.log(typeof b);
 
 // ### 題目十：傳值與傳參考
