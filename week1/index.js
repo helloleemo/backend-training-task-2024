@@ -32,17 +32,22 @@ let AlexBudget = 3000;
 
 let traningGroupClassCount = 1;
 let yogaGroupClassCount = 3;
+let traningOneToOneCount = 1;
+
 let totalClasses = traningGroupClassCount + yogaGroupClassCount;
-let totalCost = (traningGroupClass * traningGroupClassCount) + (yogaGroupClass * yogaGroupClassCount);
+let totalCost = (traningGroupClass * traningGroupClassCount) + (yogaGroupClass * yogaGroupClassCount) + ( traningOneToOne * traningOneToOneCount);
+AlexBudget = AlexBudget - totalCost
+
+console.log(`Alex 買完課程了，他一共剩下 ${AlexBudget} 元`);
 
 // While 
-while (totalCost < 2400 && totalClasses < 5) {
-  traningGroupClassCount++; // 增加一堂團體課
-  totalClasses++; // 所有課堂數量
-  totalCost += traningGroupClass;
-}
+// while (totalCost < 2400 && totalClasses < 5) {
+//   traningGroupClassCount++; // 增加一堂團體課
+//   totalClasses++; // 所有課堂數量
+//   totalCost += traningGroupClass;
+// }
 
-AlexBudget -= totalCost;
+// AlexBudget -= totalCost;
 
 console.log(`Alex 買完課程了，他一共剩下 ${AlexBudget} 元`);
 
