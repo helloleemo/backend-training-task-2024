@@ -26,7 +26,7 @@ console.log(g * h === 64); // true
 
 let i = '9';
 let j = '9';
-console.log(i + j == 99); // false
+console.log(i + j == 99); // true // '99' == 99 
 console.log(i + j === '99'); // true
 console.log(i + j === 99); // false
 
@@ -51,10 +51,10 @@ let BobIsVip = false; /* Bob 是否為 VIP */
 
 // 練習：（可自行將下方程式碼的註解刪除，完成答題）
 if (BobPrice >= giftPriceRule || BobIsVip) {
-  giftNum -= 1;
-  console.Log("客戶您好，您有符合贈品資格");
+  giftNum --;
+  console.log("客戶您好，您有符合贈品資格");
 } else {
-  console.Log("客戶您好，您沒有符合贈品資格");
+  console.log("客戶您好，您沒有符合贈品資格");
 }
 
 console.log(`贈品還剩下${giftNum}個`);
@@ -78,7 +78,7 @@ let coachBonus = baseBonus; // 教練業績獎金帳單，並已加入條件一�
 // 練習：計算教練業績獎金
 if (coachIncome < 100000){
   coachBonus += coachIncome * 0.1;
-} else if(coachIncome >= 100000 && coachIncome < 300000){
+} else if(coachIncome < 300000){
   coachBonus += coachIncome * 0.15;
 } else{
   coachBonus += coachIncome * 0.2;
@@ -274,7 +274,7 @@ const exerciseRecords = [
 // 範例：週一
 if (exerciseRecords[0].duration >= 30 && exerciseRecords[0].heartRate >= 130) {
   totalDuration += exerciseRecords[0].duration;
-  validDays += 1;
+  validDays ++;
 }
 // 練習：週二、週三、週四、週五、週六
 if (exerciseRecords[1].duration >=30 && exerciseRecords[1].heartRate >= 130){
