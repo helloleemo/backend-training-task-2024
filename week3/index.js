@@ -21,44 +21,35 @@ const members = ["Alice", "Bob", "Charlie", "Diana", "Evan", "Fiona", "George", 
 // 總金額（courses × 單價）
 
 let purchaseRecords = [];
-
 function addPurchaseRecord(name, courses) {
     if (typeof name !== 'string' || name === '' || courses <= 0 || typeof courses !== 'number') {
         console.log('輸入錯誤，請輸入有效的會員名稱和課程數量。');
-    } else if (courses <= 10) {
-        pricePerCourse = 1500
-        let record = {
-            name: name,
-            courses: courses,
-            totalCost: courses * pricePerCourse,
-        }
-        purchaseRecords.push(record);
-        consoleLog(record.name, record.courses, record.totalCost)
-    } else if (courses <= 20) {
-        pricePerCourse = 1300
-        let record = {
-            name: name,
-            courses: courses,
-            totalCost: courses * pricePerCourse,
-        }
-        purchaseRecords.push(record);
-        consoleLog(record.name, record.courses, record.totalCost)
-
-    } else {
-        pricePerCourse = 1100
-        let record = {
-            name: name,
-            courses: courses,
-            totalCost: courses * pricePerCourse,
-        }
-        purchaseRecords.push(record);
-        consoleLog(record.name, record.courses, record.totalCost)
+        return;
     }
+    const pricePerCourse = getPricePerCourse(courses);
+    const record = pushToRecords(name, courses, pricePerCourse);
+    purchaseRecords.push(record);
+    consoleLog(record.name, record.courses, record.totalCost);
 }
 
 function consoleLog(name, courses, totalCost) {
     console.log(`新增購買記錄成功！會員 ${name} 購買 ${courses} 堂課，總金額為 ${totalCost} 元。`);
 }
+
+function pushToRecords(name, courses, pricePerCourse) {
+    return {
+        name: name,
+        courses: courses,
+        totalCost: courses * pricePerCourse,
+    }
+}
+
+function getPricePerCourse(courses) {
+    if (courses <= 10 && courses > 0) return 1500;
+    if (courses <= 20 && courses > 10) return 1300;
+    return 1100;
+}
+
 
 addPurchaseRecord("Alice", 4);
 addPurchaseRecord("Bob", 12);
@@ -98,16 +89,15 @@ calculateTotalPrice(purchaseRecords);
 
 
 // 第三階段：篩選出還沒有購課的會員
-const filterNoPurchaseMember = () => {
-    // 遍歷會員，篩選出未購買的會員
+function filterNoPurchaseMember() {
     const noPurchaseMembers = members.filter(member => {
-        // 透過內部 filter 判斷該會員是否出現在購買記錄中
         const purchasedMember = purchaseRecords.filter(record => record.name === member);
-        return purchasedMember.length === 0; // 若購買記錄為空，表示未購買
+        return purchasedMember.length === 0; 
     });
 
-    console.log(`未購買課程的會員有：${noPurchaseMembers.join("，")}。`);
+    console.log(`未購買課程的會員有：${noPurchaseMembers.join("、")}。`);
 };
+
 filterNoPurchaseMember();
 
 // 新增函式 filterNoPurchaseMember，篩選特定條件的會員記錄。例如：未購買過課程的會員，並依序列出
