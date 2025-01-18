@@ -98,8 +98,17 @@ calculateTotalPrice(purchaseRecords);
 
 
 // 第三階段：篩選出還沒有購課的會員
+const filterNoPurchaseMember = () => {
+    // 遍歷會員，篩選出未購買的會員
+    const noPurchaseMembers = members.filter(member => {
+        // 透過內部 filter 判斷該會員是否出現在購買記錄中
+        const purchasedMember = purchaseRecords.filter(record => record.name === member);
+        return purchasedMember.length === 0; // 若購買記錄為空，表示未購買
+    });
 
+    console.log(`未購買課程的會員有：${noPurchaseMembers.join("，")}。`);
+};
+filterNoPurchaseMember();
 
 // 新增函式 filterNoPurchaseMember，篩選特定條件的會員記錄。例如：未購買過課程的會員，並依序列出
-
 // 印出 console.log 文字為 未購買課程的會員有：.......
