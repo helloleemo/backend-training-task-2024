@@ -20,6 +20,13 @@ const members = ["Alice", "Bob", "Charlie", "Diana", "Evan", "Fiona", "George", 
 // 課程單價（自動計算）
 // 總金額（courses × 單價）
 
+/*
+    控制在16毫秒以內，超過會卡卡的
+    如果太多，返回就切斷ex. pagination, 
+    排序在後端sql排好回傳比較好，因為前端可以做但會比較久
+    有的前端會被要求不要做計算，因為會卡卡的 
+*/
+
 let purchaseRecords = [];
 function addPurchaseRecord(name, courses) {
     if (typeof name !== 'string' || name === '' || courses <= 0 || typeof courses !== 'number') {
