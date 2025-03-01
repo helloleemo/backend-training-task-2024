@@ -43,6 +43,10 @@ function consoleLog(name, courses, totalCost) {
     console.log(`新增購買記錄成功！會員 ${name} 購買 ${courses} 堂課，總金額為 ${totalCost} 元。`);
 }
 
+
+/*
+    重複的程式碼可以抽出來 
+*/
 function pushToRecords(name, courses, pricePerCourse) {
     return {
         name: name,
@@ -50,6 +54,10 @@ function pushToRecords(name, courses, pricePerCourse) {
         totalCost: courses * pricePerCourse,
     }
 }
+
+/*
+    將可能變動的邏輯抽出來寫，維護上比較好處理
+*/
 
 function getPricePerCourse(courses) {
     if (courses <= 10 && courses > 0) return 1500;
