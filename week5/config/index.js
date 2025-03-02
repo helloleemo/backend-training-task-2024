@@ -1,4 +1,4 @@
-const dotenv = require('dotenv')
+const dotenv = require('dotenv') //和環境變數有關的都放在這
 
 const result = dotenv.config()
 const db = require('./db')
